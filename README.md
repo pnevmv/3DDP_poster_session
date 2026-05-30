@@ -1,11 +1,43 @@
+# FoundationStereo — 3D Data Processing Poster
 
-  # Design Academic Research Poster
+Academic research poster for the **3D Data Processing Poster Session**, University of Padova 2026.
 
-  This is a code bundle for Design Academic Research Poster.
+Based on: *FoundationStereo: Zero-Shot Stereo Matching* by Bowen Wen, Matthew Trepte, Joseph Aribido, Jan Kautz, Orazio Gallo, Stan Birchfield (NVIDIA).
 
-  ## Running the code
+Built with React, TypeScript, Vite, and Tailwind CSS.
 
-  Run `npm i` to install the dependencies.
+## Setup
 
-  Run `npm run dev` to start the development server.
-  
+**Prerequisites:** Node.js 18+
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+Or with pnpm (if installed):
+
+```bash
+pnpm install
+```
+
+### Development server
+
+```bash
+npm run dev
+```
+
+Opens at `http://localhost:5173` with hot reload.
+
+### Production build
+
+```bash
+npm run build
+```
+
+Output goes to `dist/`. Serve it with:
+
+```bash
+npx serve dist
+```
