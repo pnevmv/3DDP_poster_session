@@ -8,23 +8,27 @@ Built with React, TypeScript, Vite, and Tailwind CSS.
 
 ## Setup
 
-**Prerequisites:** Node.js 18+
+**Prerequisites:** Node.js 18+ — download from [nodejs.org](https://nodejs.org)
 
-### Install dependencies
+### macOS / Linux
 
 ```bash
 npm install
+npm run dev
 ```
 
-Or with pnpm (if installed):
+Opens at `http://localhost:5173` with hot reload.
 
-```bash
-pnpm install
-```
+### Windows
 
-### Development server
+1. Install Node.js from [nodejs.org](https://nodejs.org) (LTS recommended)
+2. Open **Command Prompt** or **PowerShell** in the project folder:
+   - In File Explorer, navigate to the project folder
+   - Hold `Shift`, right-click, and select **Open PowerShell window here**
+3. Run:
 
-```bash
+```powershell
+npm install
 npm run dev
 ```
 
