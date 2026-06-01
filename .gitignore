@@ -1,3 +1,10 @@
 node_modules/
 dist/
 .DS_Store
+latex/*.aux
+latex/*.log
+latex/*.nav
+latex/*.out
+latex/*.snm
+latex/*.toc
+.claude/

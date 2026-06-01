@@ -1,5 +1,5 @@
 import Figure2 from '../imports/Figure2.png';
-import Figure3 from '../imports/Figure3.png';
+import Figure3 from '../imports/Figure3_crop.png';
 import Figure4 from '../imports/Figure4.png';
 import Figure5 from '../imports/Figure5.png';
 
@@ -25,8 +25,8 @@ export default function App() {
       <div className="w-full aspect-[1189/841] bg-white" style={{ color: TEXT }}>
 
         {/* Header */}
-        <header className="mb-4 pb-3 border-b-4" style={{ borderColor: ORANGE }}>
-          <h1 className="text-5xl mb-1.5" style={{ fontWeight: 700, color: ORANGE }}>
+        <header className="mb-4 pb-3 border-b-[3px]" style={{ borderColor: ORANGE }}>
+          <h1 className="mb-1.5" style={{ fontWeight: 700, color: ORANGE, fontSize: '2.4rem' }}>
             FoundationStereo: Zero-Shot Stereo Matching
           </h1>
           <div className="text-base mb-0.5" style={{ color: TEXT_SEC }}>
@@ -76,7 +76,7 @@ export default function App() {
                   ['1', 'FoundationStereo:', 'Stereo foundation model with strong zero-shot generalization'],
                   ['2', 'FSD Dataset:', '1M synthetic stereo pairs with high diversity'],
                   ['3', 'Side-Tuning Adapter:', 'Adapts DepthAnythingV2 for stereo matching'],
-                  ['4', 'Attentive Hybrid Cost Filtering:', 'Local + global reasoning'],
+                  ['4', 'Attentive Hybrid Cost Filtering:', 'Spatial + disparity reasoning'],
                 ].map(([num, bold, rest]) => (
                   <div key={num} className="flex items-start">
                     <span
@@ -92,13 +92,13 @@ export default function App() {
 
           {/* Column 2: Architecture Overview — visually dominant */}
           <div>
-            <section className="p-4 rounded-xl h-full flex flex-col" style={{ background: CARD_BG }}>
-              <h2 className="text-xl mb-2 flex-shrink-0" style={{ fontWeight: 600, color: ORANGE }}>
+            <section className="p-2 rounded-xl h-full flex flex-col" style={{ background: CARD_BG }}>
+              <h2 className="text-xl mb-1 flex-shrink-0 px-2 pt-2" style={{ fontWeight: 600, color: ORANGE }}>
                 Architecture Overview
               </h2>
 
-              {/* Figure 2 — enlarged ~30% vs original 280px */}
-              <div className="rounded overflow-hidden mb-2 flex-1 bg-white flex items-center justify-center" style={{ minHeight: 0 }}>
+              {/* Figure 2 — maximised */}
+              <div className="rounded overflow-hidden mb-1 flex-1 bg-white flex items-center justify-center" style={{ minHeight: 0 }}>
                 <img
                   src={Figure2}
                   alt="FoundationStereo architecture"
@@ -108,7 +108,7 @@ export default function App() {
               <FigLabel>Figure 2: FoundationStereo architecture</FigLabel>
 
               {/* Step buttons — compact */}
-              <div className="grid grid-cols-4 gap-1.5 mt-2">
+              <div className="grid grid-cols-4 gap-1.5 mt-1 px-2 pb-2">
                 {[
                   ['Step 1', 'Feature Extraction'],
                   ['Step 2', 'Hybrid Cost Volume'],
@@ -156,21 +156,12 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Figure 3 — cropped to show only qualitative comparison (right portion) */}
-              <div
-                className="mt-2 rounded overflow-hidden flex-1"
-                style={{ position: 'relative', minHeight: 100 }}
-              >
+              {/* Figure 3 crop — qualitative comparison */}
+              <div className="mt-2 rounded overflow-hidden flex-1 bg-white flex items-center justify-center" style={{ minHeight: 100 }}>
                 <img
                   src={Figure3}
                   alt="Effect of STA and AHCF"
-                  style={{
-                    position: 'absolute',
-                    right: 0,
-                    top: 0,
-                    height: '100%',
-                    width: 'auto',
-                  }}
+                  className="w-full h-full object-contain"
                 />
               </div>
               <FigLabel>Figure 3: Effect of STA and AHCF</FigLabel>
@@ -193,12 +184,12 @@ export default function App() {
                   <strong>1 million stereo pairs</strong> via NVIDIA Omniverse with high realism.
                 </p>
                 <div className="grid grid-cols-2 gap-2">
-                  <div className="bg-white p-2 rounded-lg text-center">
-                    <div className="text-lg" style={{ fontWeight: 700, color: ORANGE }}>1280×720</div>
+                  <div className="bg-white py-1 px-2 rounded-lg text-center">
+                    <div className="text-base" style={{ fontWeight: 700, color: ORANGE }}>1280×720</div>
                     <div className="text-xs" style={{ color: TEXT_SEC }}>Resolution</div>
                   </div>
-                  <div className="bg-white p-2 rounded-lg text-center">
-                    <div className="text-lg" style={{ fontWeight: 700, color: ORANGE }}>1M</div>
+                  <div className="bg-white py-1 px-2 rounded-lg text-center">
+                    <div className="text-base" style={{ fontWeight: 700, color: ORANGE }}>1M</div>
                     <div className="text-xs" style={{ color: TEXT_SEC }}>Pairs</div>
                   </div>
                 </div>
@@ -209,8 +200,8 @@ export default function App() {
                 </p>
               </div>
 
-              {/* Figure 4 — slightly enlarged */}
-              <div className="mt-2 rounded overflow-hidden flex-1 bg-white flex items-center justify-center" style={{ minHeight: 120 }}>
+              {/* Figure 4 */}
+              <div className="mt-2 rounded overflow-hidden flex-1 bg-white flex items-center justify-center" style={{ minHeight: 155 }}>
                 <img
                   src={Figure4}
                   alt="FSD dataset and self-curation"
@@ -228,7 +219,7 @@ export default function App() {
                 Zero-Shot Results
               </h2>
               <p className="text-xs mb-3" style={{ color: TEXT_SEC }}>
-                <strong style={{ color: TEXT }}>State-of-the-art zero-shot performance</strong> without target-domain fine-tuning.
+                Strong zero-shot performance without target-domain fine-tuning.
               </p>
 
               <div className="rounded-xl overflow-hidden border-2" style={{ borderColor: ORANGE }}>
@@ -260,11 +251,9 @@ export default function App() {
                 </table>
               </div>
 
-              <div className="mt-2 p-2 rounded-lg border-l-4" style={{ background: '#FFF4E6', borderColor: ORANGE }}>
-                <p className="text-xs" style={{ color: TEXT_SEC }}>
-                  Lower is better. Values are error rates (%).
-                </p>
-              </div>
+              <p className="mt-2 text-xs pl-2 border-l-2" style={{ color: TEXT_SEC, borderColor: ORANGE }}>
+                Lower is better. Values are error rates (%).
+              </p>
             </section>
           </div>
 
@@ -300,7 +289,7 @@ export default function App() {
               <div className="text-xs space-y-1" style={{ color: TEXT }}>
                 <div>✓ <strong>Foundation model paradigm</strong> works for stereo matching</div>
                 <div>✓ <strong>Large-scale synthetic data</strong> + monocular priors enable zero-shot transfer</div>
-                <div>✓ <strong>Hybrid reasoning</strong> crucial for robust cost volumes</div>
+                <div>✓ <strong>Hybrid cost filtering</strong> improves robust disparity estimation</div>
               </div>
             </div>
             <div>
