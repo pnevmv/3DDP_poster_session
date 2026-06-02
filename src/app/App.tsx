@@ -229,22 +229,32 @@ export default function App() {
                       <th className="px-3 py-2.5 text-left text-white">Dataset</th>
                       <th className="px-3 py-2.5 text-center text-white">Metric ↓</th>
                       <th className="px-3 py-2.5 text-center text-white">FoundationStereo</th>
+                      <th className="px-3 py-2.5 text-center text-white">CREStereo++</th>
+                      <th className="px-3 py-2.5 text-center text-white">Selective-IGEV*</th>
                     </tr>
                   </thead>
                   <tbody>
                     {[
-                      ['Middlebury', 'BP-2', '1.1', 'white'],
-                      ['ETH3D', 'BP-1', '0.5', CARD_BG],
-                      ['KITTI-12', 'D1', '2.3', 'white'],
-                      ['KITTI-15', 'D1', '2.8', CARD_BG],
-                    ].map(([dataset, metric, value, rowBg]) => (
+                      ['Middlebury', 'BP-2', '1.1', '14.8', '7.5', 'white'],
+                      ['ETH3D', 'BP-1', '0.5', '4.4', '3.4', CARD_BG],
+                      ['KITTI-12', 'D1', '2.3', '4.7', '3.2', 'white'],
+                      ['KITTI-15', 'D1', '2.8', '5.2', '4.5', CARD_BG],
+                    ].map(([dataset, metric, value1, value2, value3, rowBg]) => (
                       <tr key={dataset} style={{ background: rowBg, borderBottom: '1px solid #E5E7EB' }}>
                         <td className="px-3 py-2.5" style={{ color: TEXT }}>{dataset}</td>
                         <td className="px-3 py-2.5 text-center" style={{ color: TEXT_SEC }}>{metric}</td>
                         <td
                           className="px-3 py-2.5 text-center"
-                          style={{ background: RESULT_BG, color: RESULT_TEXT, fontWeight: 700 }}
-                        >{value}</td>
+                          style={{ background: RESULT_BG, color: ORANGE, fontWeight: 700 }}
+                        >{value1}</td>
+                        <td
+                          className="px-3 py-2.5 text-center"
+                          style={{ background: RESULT_BG, color: TEXT_SEC, fontWeight: 700 }}
+                        >{value2}</td>
+                        <td
+                          className="px-3 py-2.5 text-center"
+                          style={{ background: RESULT_BG, color: TEXT_SEC, fontWeight: 700 }}
+                        >{value3}</td>
                       </tr>
                     ))}
                   </tbody>
